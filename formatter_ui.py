@@ -17,12 +17,17 @@ def run_tool():
     arg4 = var_arg4.get()
 
     company= dropdown_var.get()
-        
-    eb_formatter.edit(company, file_path, arg1, arg2, arg3, arg4)
-    
-    # Display message
-    message = "Modifications successfully applied!"
-    messagebox.showinfo("Selected Options", message)
+   
+    try:
+        eb_formatter.edit(company, file_path, arg1, arg2, arg3, arg4)
+    except Exception as e:
+        # Display error
+        message = str(e)
+        messagebox.showerror("Error", message)
+    else:
+        # Display message
+        message = "Modifications successfully applied!"
+        messagebox.showinfo("Formatter :^)", message)
 
 def on_dropdown_change(*args):
     # This function will be called when the dropdown selection changes
@@ -31,7 +36,7 @@ def on_dropdown_change(*args):
 
 # Create the main window
 root = tk.Tk()
-root.title("Script Options and File Upload")
+root.title("Formatter :^)")
 
 # Set the initial window size
 root.geometry("460x260")  # Width x Height
