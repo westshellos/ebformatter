@@ -38,10 +38,10 @@ def on_dropdown_change(*args):
 
 # Create the main window
 root = tk.Tk()
-root.title(f"Formatter :^) v{version_no}")
+root.title(f"Formatter :^) V{version_no}")
 
 # Set the initial window size
-root.geometry("460x260")  # Width x Height
+root.geometry("460x260") # Width x Height
 
 ## Dropdown menu
 # Create a tkinter StringVar to store the selected option
