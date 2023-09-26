@@ -5,9 +5,6 @@ import os
 from bs4 import BeautifulSoup
 
 def links(company, input_content):
-    if company == '':
-        return input_content
-    
     # Links dictionary
     links_map = {"TSL" : "https://thesmartlocal.com/",
                  "Eatbook": "https://eatbook.sg/",
@@ -15,26 +12,30 @@ def links(company, input_content):
                  "Zula" : "https://zula.sg/",
                  "Uchify" : "https://uchify.com/"}
     
-    company_url = links_map[company]
+    if company == '':
+        raise Exception("No company selected")
+    
+    else:
+        company_url = links_map[company]
 
-    # Parse the HTML content using BeautifulSoup
-    soup = BeautifulSoup(input_content, 'html.parser')
+        # Parse the HTML content using BeautifulSoup
+        soup = BeautifulSoup(input_content, 'html.parser')
 
-    # Find all anchor tags in the HTML
-    anchor_tags = soup.find_all('a')
+        # Find all anchor tags in the HTML
+        anchor_tags = soup.find_all('a')
 
-    # Denotes company URL
-    for anchor in anchor_tags:
-        # Get the URL from the 'href' attribute of the anchor tag
-        url = anchor.get('href', '')
-        if url and not url.startswith(company_url):
-            # Add target="_blank" to the anchor tag
-            anchor['target'] = '_blank'
+        # Denotes company URL
+        for anchor in anchor_tags:
+            # Get the URL from the 'href' attribute of the anchor tag
+            url = anchor.get('href', '')
+            if url and not url.startswith(company_url):
+                # Add target="_blank" to the anchor tag
+                anchor['target'] = '_blank'
 
-    # Get the processed HTML content
-    processed_content = str(soup)
+        # Get the processed HTML content
+        processed_content = str(soup)
 
-    return processed_content
+        return processed_content
 
 def bold(input_content):
     # Parse the HTML content using BeautifulSoup
@@ -91,9 +92,9 @@ def edit(company, file_path, arg1, arg2, arg3, arg4):
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # Apply modifications in the specified order
+    # Apply modifications in the specified order 
     if arg1:
-        content = links(company, content)
+        content = links(company, content) 
     if arg2:
         content = bold(content)
     if arg3:
