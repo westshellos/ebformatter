@@ -38,7 +38,7 @@ def on_dropdown_change(*args):
 
 # Create the main window
 root = tk.Tk()
-root.title(f"Formatter :^) v{version_no}")
+root.title(f"Formatter :^) v{VERSION_NO}")
 
 # Set the initial window size
 root.geometry("460x260") # Width x Height
