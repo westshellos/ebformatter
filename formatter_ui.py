@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import filedialog, messagebox
 import eb_formatter
 
-version_no = "2.05"
+VERSION_NO = "2.05"
 
 def open_file():
     file_path = filedialog.askopenfilename()
@@ -38,7 +38,7 @@ def on_dropdown_change(*args):
 
 # Create the main window
 root = tk.Tk()
-root.title(f"Formatter :^) V{version_no}")
+root.title(f"Formatter :^) v{version_no}")
 
 # Set the initial window size
 root.geometry("460x260") # Width x Height
