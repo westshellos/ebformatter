@@ -71,7 +71,7 @@ def hr2(input_content):
     # Parse the HTML content using BeautifulSoup
     soup = BeautifulSoup(input_content, 'html.parser')
 
-    # Find all h3 headings in the HTML
+    # Find all h2 headings in the HTML
     h2_headings = soup.find_all('h2')
 
     for h2 in h2_headings:
@@ -84,7 +84,23 @@ def hr2(input_content):
 
     return processed_content
 
-def edit(company, file_path, arg1, arg2, arg3, arg4):
+def numbering(input_content):
+    # Parse the HTML content using BeautifulSoup
+    soup = BeautifulSoup(input_content, 'html.parser')
+
+    # Find all h3 headings in the HTML
+    h3_headings = soup.find_all('h3')
+
+    for h3 in h3_headings:  
+        # Numbers all heading3s 
+        h3.insert(0, f"{(h3_headings.index(h3)+1)}. ")
+
+    # Get the processed HTML content
+    processed_content = str(soup)
+
+    return processed_content
+
+def edit(company, file_path, arg1, arg2, arg3, arg4, arg5):
     
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
@@ -98,6 +114,8 @@ def edit(company, file_path, arg1, arg2, arg3, arg4):
         content = hr3(content)
     if arg4:
         content = hr2(content)
+    if arg5:
+        content = numbering(content)
 
     # Create a new output file with the appropriate suffix based on the functions applied
     output_file = os.path.splitext(file_path)[0]
@@ -109,6 +127,8 @@ def edit(company, file_path, arg1, arg2, arg3, arg4):
         output_file += '_hr3'
     if arg4:
         output_file += '_hr2'
+    if arg5:
+        output_file += '_num'
     output_file += '.txt'
 
 
