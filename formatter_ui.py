@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import filedialog, messagebox
 import eb_formatter
 
+version_no = "2.05"
+
 def open_file():
     file_path = filedialog.askopenfilename()
     if file_path:
@@ -32,11 +34,11 @@ def run_tool():
 def on_dropdown_change(*args):
     # This function will be called when the dropdown selection changes
     selected_option = dropdown_var.get()
-    dropdown_label.config(text=f"Selected option: {selected_option}")
+    dropdown_label.config(text=f"Selected company: {selected_option}")
 
 # Create the main window
 root = tk.Tk()
-root.title("Formatter :^)")
+root.title(f"Formatter :^) v{version_no}")
 
 # Set the initial window size
 root.geometry("460x260")  # Width x Height
@@ -46,7 +48,7 @@ root.geometry("460x260")  # Width x Height
 dropdown_var = tk.StringVar(root)
 
 # Create a label to display the selected option
-dropdown_label = tk.Label(root, text="Selected option: None")
+dropdown_label = tk.Label(root, text="Selected company: None")
 
 # Create a list of options for the dropdown
 options = ["","TSL", "Eatbook", "MSN", "Zula", "Uchify"]

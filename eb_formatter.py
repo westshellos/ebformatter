@@ -1,6 +1,3 @@
-# v2 last updated 24 sep 23
-
-# import argparse
 import os
 from bs4 import BeautifulSoup
 
