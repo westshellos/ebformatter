@@ -93,14 +93,11 @@ def numbering(input_content):
 
     for h3 in h3_headings:  
         # Numbers all heading3s 
+        x = list(h3.text.split("."))
         index_no = h3_headings.index(h3)
-
-        def numb_correct(h3.string)
-            for element in h3.string:
-                if int(element):
-                    
-
-        h3.replace_with(f"{index_no + 1}" + ". " + f"{numb_correct(h3.string)}")
+        
+        x[0] = f"{index_no + 1}"
+        h3.string = ".".join(x)
 
     # Get the processed HTML content
     processed_content = str(soup)

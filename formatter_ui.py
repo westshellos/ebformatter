@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import filedialog, messagebox
 import eb_formatter
 
-VERSION_NO = "2.1"
+VERSION_NO = "2.1.0"
 
 def open_file():
     file_path = filedialog.askopenfilename()
