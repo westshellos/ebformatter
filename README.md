@@ -9,42 +9,36 @@ writers at TSL can:
 - (wip) have listicle entries be numbered in order automatically
  
 ## installation
-head to [releases](https://github.com/westshellos/ebformatter/releases) and look for <img align="center" src="image.png" alt="screenshot of assets header on github" width="55" height="auto"> 
+head to [releases](https://github.com/westshellos/ebformatter/releases) and scroll down until you see <img align="center" src="image.png" alt="screenshot of assets header on github" width="69" height="auto">. depending on your operating system, follow the instructions in the respective dropdowns:
 
 <details>
 
-<summary>for windows</summary>
+<summary> windows </summary>
 
-### You can add a header
+### step 1 - download the .exe file
 
-You can add text within a collapsed section. 
-
-You can add an image or a code block, too.
-
-```ruby
-   puts "Hello World"
-```
+### step 2
 
 </details>
 
 <details>
 
-<summary>for macos</summary>
+<summary> macos </summary>
 
-### You can add a header
-
-You can add text within a collapsed section. 
-
-You can add an image or a code block, too.
-
-```ruby
-   puts "Hello World"
-```
+### step 1 - download the .zip file
 
 </details>
-
 
 ## demo
+<details>
+<summary> windows </summary>
+stuff
+</details>
+
+<details>
+<summary> macos </summary>
+stuff2
+</details>
 
 ## release history
 v2.0.0
