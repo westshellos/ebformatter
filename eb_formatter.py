@@ -1,5 +1,5 @@
 import os
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag, NavigableString
 
 def links(company, input_content):
     # Links dictionary
@@ -91,15 +91,24 @@ def numbering(input_content):
     # Find all h3 headings in the HTML
     h3_headings = soup.find_all('h3')
 
-    for h3 in h3_headings:  
-        # Numbers all heading3s 
-        x = list(h3.text.split("."))
-        index_no = h3_headings.index(h3)
-        
-        x[0] = f"{index_no + 1}"
-        h3.string = ".".join(x)
+    for h3 in h3_headings:
+        t = h3
+        # While the current child is NOT a NavigableString
+        while type(t.contents[0]) != NavigableString:
+            # Check if the child is a Tag, if not, throw exception
+            if type(t.contents[0]) != Tag:
+                raise Exception(f"Unrecognized content type: {type(t)}")
 
-    # Get the processed HTML content
+            # Child is a Tag, set self as child
+            t = t.contents[0]
+
+        #Numbers all heading3s 
+        x = list(t.text.split("."))
+        index_no = h3_headings.index(h3)
+        x[0] = f"{index_no + 1}"
+        t.string = ".".join(x)
+
+    #Get the processed HTML content
     processed_content = str(soup)
 
     return processed_content
