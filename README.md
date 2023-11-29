@@ -39,9 +39,10 @@ head to [releases](https://github.com/westshellos/ebformatter/releases) and scro
 </details>
 
 ## usage
+<i> <u>note</u>: the formatter removes some spaces between paragraphs, so i recommend using the formatter BEFORE you add photos to your post so that you can add the spaces as you edit later. </i>
 
 1. copy your blog post's html into a .txt file by doing the following:
-     
+      
    <u>1.1</u> open the post you would like to format on wordpress.
    
    <u>1.2</u> on the word editor, you should see the <img src="./images/wordpress_text_editor_alternate_screenshot.png" align="center" width="auto" height="30"> tab on the upper right corner. 
