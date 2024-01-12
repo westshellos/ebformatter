@@ -102,7 +102,7 @@ def numbering(input_content):
             # Child is a Tag, set self as child
             t = t.contents[0]
 
-        #Numbers all heading3s 
+        #Numbers heading3 accordingly
         x = list(t.text.split("."))
         index_no = h3_headings.index(h3)
         x[0] = f"{index_no + 1}"
